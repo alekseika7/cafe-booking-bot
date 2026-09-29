@@ -1,0 +1,17 @@
+[project]
+name = "cafe-booking-bot"
+version = "0.1.0"
+requires-python = ">=3.14,<3.15"
+dependencies = ["httpx==0.28.1", "python-dotenv (>=1.2.3,<2.0.0)"]
+
+[tool.poetry]
+package-mode = false
+requires-poetry = ">=2.2"
+
+[dependency-groups]
+test = [
+    "pytest (>=9.1.1,<10.0.0)"
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

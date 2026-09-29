@@ -1,0 +1,23 @@
+services:
+  booking:
+    build:
+      context: .
+      args:
+        BOOKING_UID: ${BOOKING_UID:-10001}
+    init: true
+    restart: "no"
+    # По умолчанию репетиция. Для отправки заявки: ["run", "--live"].
+    command: ["run"]
+    environment:
+      GUEST_FIRST_NAME: ${GUEST_FIRST_NAME:-}
+      GUEST_LAST_NAME: ${GUEST_LAST_NAME:-}
+      GUEST_PHONE: ${GUEST_PHONE:-}
+      GUEST_EMAIL: ${GUEST_EMAIL:-}
+      GUEST_TELEGRAM: ${GUEST_TELEGRAM:-}
+      TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN:-}
+      TELEGRAM_CHAT_ID: ${TELEGRAM_CHAT_ID:-}
+    volumes:
+      - ./config.toml:/config/config.toml:ro
+      - booking-data:/data
+volumes:
+  booking-data:
