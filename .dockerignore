@@ -1,0 +1,11 @@
+.git
+.idea
+.venv
+__pycache__
+.pytest_cache
+*.log
+config.toml
+.env
+data
+reports
+tests
